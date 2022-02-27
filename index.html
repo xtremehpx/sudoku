@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto auto auto ;
+            gap: 0px;
+            background-color: #2196F3;
+            padding: 2px;
+        }
+
+        .grid-container>div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px;
+            font-size: 25px;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+        }
+
+        .grid-c{
+            border-right: 2px solid #000;
+            border-left: 2px solid #000;
+        }
+        .grid-r{
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            genSudokuGrid();
+        };
+
+        function genSudokuGrid(){
+            var html = "";
+            for (var i = 1; i < 10; i++) {
+                for (var j = 1; j < 10; j++) {
+                    var n = (i-1)*9 +j;
+                    var c = ''
+                    if(i%3==0){
+                        c += ' grid-r'
+                    }
+                    if(j%3==0){
+                        c += ' grid-c'
+                    }
+                    html += '<div class="'+c+'" id="item_' + i + '_'+ j+ '">' + i + ',' + j + '</div>';
+                }
+            }
+            //console.log(html);
+            document.getElementById('table').innerHTML = html;
+        };
+
+        function fillSudokuTable(){
+            for (var i = 1; i < 10; i++) {
+                for (var j = 1; j < 10; j++) {
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Grid Lines</h1>
+
+    <div class="grid-container" id="table">
+    </div>
+
+    <p>You can refer to line numbers when placing grid items.</p>
+
+</body>
+
+</html>
